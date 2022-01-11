@@ -9,6 +9,7 @@ import com.metehanbolat.paging3compose.data.local.UnsplashDatabase
 import com.metehanbolat.paging3compose.data.remote.UnsplashApi
 import com.metehanbolat.paging3compose.model.UnsplashImage
 import com.metehanbolat.paging3compose.model.UnsplashRemoteKeys
+import com.metehanbolat.paging3compose.util.Constants.ITEMS_PER_PAGE
 import javax.inject.Inject
 
 @ExperimentalPagingApi
