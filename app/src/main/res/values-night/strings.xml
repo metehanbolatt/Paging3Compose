@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Paging3Compose</string>
     <string name="unsplash_image">Unsplash Image</string>
     <string name="heart_icon">Heart Icon</string>
 </resources>
