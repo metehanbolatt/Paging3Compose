@@ -12,14 +12,14 @@ interface UnsplashApi {
     @GET("/photos")
     suspend fun getAllImage(
         @Query(value = "page") page: Int,
-        @Query(value = "per_page") per_page: Int
+        @Query(value = "per_page") perPage: Int
     ): List<UnsplashImage>
 
     @Headers("Authorization: Client-ID ${BuildConfig.API_KEY}")
     @GET("/search/photos")
     suspend fun searchImages(
         @Query(value = "page") page: Int,
-        @Query(value = "per_page") per_page: Int
+        @Query(value = "per_page") perPage: Int
     ): List<UnsplashImage>
 
 }
