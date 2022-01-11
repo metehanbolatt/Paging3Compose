@@ -2,4 +2,6 @@
 <resources>
     <string name="unsplash_image">Unsplash Image</string>
     <string name="heart_icon">Heart Icon</string>
+    <string name="home">Home</string>
+    <string name="search_icon">Search Icon</string>
 </resources>
