@@ -7,7 +7,7 @@ import com.metehanbolat.paging3compose.model.UnsplashImage
 import java.lang.Exception
 import javax.inject.Inject
 
-class SearchPagingSource @Inject constructor(
+class SearchPagingSource(
     private val unsplashApi: UnsplashApi,
     private val query: String
 ) : PagingSource<Int, UnsplashImage>() {
