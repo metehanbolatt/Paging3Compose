@@ -10,16 +10,15 @@ import com.metehanbolat.paging3compose.data.remote.UnsplashApi
 import com.metehanbolat.paging3compose.model.UnsplashImage
 import com.metehanbolat.paging3compose.model.UnsplashRemoteKeys
 import com.metehanbolat.paging3compose.util.Constants.ITEMS_PER_PAGE
-import javax.inject.Inject
 
 @ExperimentalPagingApi
-class UnsplashRemoteMediator @Inject constructor(
+class UnsplashRemoteMediator(
     private val unsplashApi: UnsplashApi,
     private val unsplashDatabase: UnsplashDatabase
 ): RemoteMediator<Int, UnsplashImage>() {
 
-    private val unsplashImageDao = unsplashDatabase.unsplashImageDao();
-    private val unsplashRemoteKeysDao = unsplashDatabase.unsplashRemoteKeysDao();
+    private val unsplashImageDao = unsplashDatabase.unsplashImageDao()
+    private val unsplashRemoteKeysDao = unsplashDatabase.unsplashRemoteKeysDao()
 
     override suspend fun load(
         loadType: LoadType,
