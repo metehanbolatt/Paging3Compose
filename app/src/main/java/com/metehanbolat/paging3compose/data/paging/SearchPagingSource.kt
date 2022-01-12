@@ -4,6 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.metehanbolat.paging3compose.data.remote.UnsplashApi
 import com.metehanbolat.paging3compose.model.UnsplashImage
+import com.metehanbolat.paging3compose.util.Constants.ITEMS_PER_PAGE
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -15,9 +16,9 @@ class SearchPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, UnsplashImage> {
         val currentPage = params.key ?: 1
         return try {
-            val response = unsplashApi.searchImages(query = query, perPage = 10)
+            val response = unsplashApi.searchImages(query = query, perPage = ITEMS_PER_PAGE)
             val endOfPaginationReached = response.images.isEmpty()
-            if (response.images.isNotEmpty()){
+            if (response.images.isNotEmpty()) {
                 LoadResult.Page(
                     data = response.images,
                     prevKey = if (currentPage == 1) null else currentPage - 1,
@@ -38,5 +39,6 @@ class SearchPagingSource(
     override fun getRefreshKey(state: PagingState<Int, UnsplashImage>): Int? {
         return state.anchorPosition
     }
+
 
 }

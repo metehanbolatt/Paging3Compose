@@ -2,11 +2,15 @@ package com.metehanbolat.paging3compose.screens.search
 
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.compose.collectAsLazyPagingItems
 import coil.annotation.ExperimentalCoilApi
 import com.metehanbolat.paging3compose.screens.common.ListContent
 
+@ExperimentalPagingApi
 @ExperimentalCoilApi
 @Composable
 fun SearchScreen(
@@ -20,9 +24,15 @@ fun SearchScreen(
         topBar = {
             SearchWidget(
                 text = searchQuery,
-                onTextChanged = { searchViewModel.updateSearchQuery(query = it) },
-                onSearchClicked = { searchViewModel.searchHeroes(query = it) },
-                onCloseClicked = { navController.popBackStack() }
+                onTextChange = {
+                    searchViewModel.updateSearchQuery(query = it)
+                },
+                onSearchClicked = {
+                    searchViewModel.searchHeroes(query = it)
+                },
+                onCloseClicked = {
+                    navController.popBackStack()
+                }
             )
         },
         content = {
